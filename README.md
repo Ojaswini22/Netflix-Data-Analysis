@@ -207,7 +207,7 @@ SELECT
   COUNT(*) AS total_content
 FROM new_table
 GROUP BY 1
-
+```
 ## Finding and Conclusion
 
 1. Content Distribution: The dataset contains a diverse range of movies and TV shows with varying ratings and genres.
