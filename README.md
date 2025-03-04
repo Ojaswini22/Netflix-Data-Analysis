@@ -43,6 +43,7 @@ SELECT COUNT(*) as total_content
 FROM netflix;
 
 1. Count the number of tv shows and movies.
+
 ```sql
 SELECT 
   type ,
