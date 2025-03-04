@@ -52,7 +52,7 @@ FROM netflix
 GROUP BY type
 ```
 2. Find the most common ratings for movies and tv shows.
-```
+```sql
 SELECT
   type,
   rating
@@ -70,7 +70,7 @@ WHERE
 
 3. List all movies released in specific year.
 
-```
+```sql
 SELECT *
 FROM netflix
 WHERE 
@@ -80,7 +80,7 @@ WHERE
 ```
 4.Find the top 5 countries with most content on netflix.
 
-```
+```sql
 SELECT 
  UNNEST(string_to_array(country,','))as new_country,
  COUNT(show_id) as total_content
@@ -92,7 +92,7 @@ LIMIT 5
 
 5. Identify the longest movie.
 
-```
+```sql
 SELECT *
 FROM netflix
 WHERE
@@ -103,7 +103,7 @@ WHERE
 
 6. Find the content that added in the last five years.
 
-```
+```sql
 SELECT *
 FROM netflix
 WHERE
@@ -112,7 +112,7 @@ WHERE
 
 7. Find the all movies and tv shows directed by 'Rajiv Chilaka'
 
-```
+```sql
 
 SELECT *
 FROM netflix
@@ -122,7 +122,7 @@ WHERE
 
 8. List all tv shows with more than 5 season.
 
-```
+```sql
 SELECT *
 FROM netflix
 WHERE
@@ -132,7 +132,7 @@ WHERE
   ```
 
 9. Count the number of content item in each genre.
-```
+```sql
 SELECT 
  UNNEST(string_to_array(listed_in, ',')) as genre,
  COUNT(show_id)
@@ -141,7 +141,7 @@ GROUP BY 1
 ```
 10. Find each year and average number of  content released by india on netflix. Return top 5 year with highest avg content release.
 
-```
+```sql
 SELECT 
    EXTRACT(YEAR FROM to_date(date_added,'Month DD,YYYY')) as year,
    COUNT(*),
@@ -152,21 +152,21 @@ WHERE
 GROUP BY 1
 ```
 11. List all movies that are documentries.
-```
+```sql
 SELECT *
 FROM netflix
 WHERE
   listed_in LIKE '%Documentaries%'
 ```
 12. Find all the movies without director.
-```
+```sql
 SELECT *
 FROM netflix
 WHERE
    director IS NULL
 ```
 13. Find how many movies actor 'Adam Sandler' appeared in last 10 years.
-```
+```sql
 SELECT *
 FROM netflix
 WHERE 
@@ -175,7 +175,7 @@ AND
 release_year>EXTRACT(YEAR FROM CURRENT_DATE)-10
 ```
 14. Find the top 10 actors who appeared in the highest number of  movies produced in india.
-```
+```sql
 SELECT 
 UNNEST(STRING_TO_ARRAY(casts,',')) as actors,
 COUNT(*) as total_content
@@ -188,7 +188,7 @@ LIMIT 10
 ```
 15. Categorize the content based on the presence of keywards 'Kill' and 'Violence' in the description field. 
     label containing these words as 'Bad' and all other as good. count how many content fall into each category.
-```
+```sql
 WITH new_table
 AS
 (
