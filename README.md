@@ -33,17 +33,17 @@ CREATE TABLE netflix
     listed_in    VARCHAR(250),
     description  VARCHAR(550)
 );
-'''
+
 ## Business Problems
 
-```
+```sql
 SELECT * FROM netflix;
 
 SELECT COUNT(*) as total_content
 FROM netflix;
-```
+
 1. Count the number of tv shows and movies.
-```
+```sql
 SELECT 
   type ,
   COUNT(*) as total_number
