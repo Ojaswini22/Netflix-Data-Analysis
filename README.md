@@ -208,4 +208,4 @@ SELECT
 FROM new_table
 GROUP BY 1
 
-'''
+
